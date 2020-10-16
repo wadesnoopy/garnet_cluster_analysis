@@ -239,7 +239,6 @@ col_end <- ncol(df_select_mineral_short)
 df_select_mineral_short$Type <- df_select_mineral$mineral
 
 
-
 df_select_mineral_short$Type <- factor(df_select_mineral_short$Type, levels = c("Almandine", "Spessartine", "Pyrope", "Grossular", "Andradite", "Uvarovite"))
 
 # convert the values to numerical format
@@ -269,15 +268,11 @@ barplot_single_func(df = df_select_mineral_short_transform,
 
 
 
-# now select 30 samples for each type ---------------------------------------------------
 
-df_final <- df_select_mineral_short_transform %>% 
-  group_by(Type) %>% 
-  sample_n(30) %>% 
-  ungroup()
+# assign a short name to our variable
+df_final <- df_select_mineral_short_transform
 
 table(df_final$Type)
-
 
 # transform ---------------------------------------------------------------
 
@@ -540,3 +535,17 @@ colplot_spread_percent_func(df = df_origin_cluster_percent_type,
                             out_path = file.path("output", name_algorithm, paste0(name_algorithm, "_colplot_origin_cluster_type_spread_count_percent_", k_centers, ".pdf")),
                             width = 6,
                             height = 4)
+
+
+
+
+# now select 30 samples for each type ---------------------------------------------------
+
+# set.seed(1)
+
+# df_final <- df_select_mineral_short_transform %>% 
+#   group_by(Type) %>% 
+#   sample_n(30) %>% 
+#   ungroup()
+# 
+# table(df_final$Type)
