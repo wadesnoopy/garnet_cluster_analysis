@@ -153,7 +153,7 @@ color_sequence_func <- function(color_num){
 
 # Load data ---------------------------------------------------------------
 
-data_path <- file.path("Final Garnet Database.xlsx")
+data_path <- file.path("Final Garnet Dataset.xlsx")
 
 # change guess_max to make sure the blanks don't influence the data type
 df <- read_excel(data_path, sheet = "Main Database", guess_max = 9e4)
@@ -273,6 +273,8 @@ barplot_single_func(df = df_select_mineral_short_transform,
 df_final <- df_select_mineral_short_transform
 
 table(df_final$Type)
+
+nrow(df_final)
 
 # transform ---------------------------------------------------------------
 
